@@ -482,3 +482,32 @@ footer small{
     }
 
 }
+
+.category{
+
+    border:none;
+    background:#efefef;
+    color:#444;
+    padding:10px 20px;
+    border-radius:25px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:all .25s ease;
+
+}
+
+.category:hover{
+
+    background:#ffd7bf;
+
+}
+
+.category.active{
+
+    background:#ff6b00;
+    color:white;
+    font-weight:600;
+    box-shadow:0 8px 20px rgba(255,107,0,.35);
+    transform:translateY(-2px);
+
+}
