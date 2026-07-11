@@ -1,0 +1,263 @@
+/* ============================================
+   animations.css
+   Randal's Restro Café
+============================================ */
+
+/* ===============================
+   General Transitions
+================================ */
+
+*{
+    transition:
+        background-color .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+}
+
+/* ===============================
+   Fade In
+================================ */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+.fade-in{
+
+    animation:fadeIn .6s ease forwards;
+
+}
+
+/* ===============================
+   Slide Up
+================================ */
+
+@keyframes slideUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.menu-card{
+
+    animation:slideUp .45s ease;
+
+}
+
+/* ===============================
+   Category Buttons
+================================ */
+
+.category{
+
+    transition:.25s ease;
+
+}
+
+.category:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.category:active{
+
+    transform:scale(.95);
+
+}
+
+.category.active{
+
+    background:#ff6b00;
+
+    color:#fff;
+
+    box-shadow:0 6px 15px rgba(255,107,0,.35);
+
+}
+
+/* ===============================
+   Menu Cards
+================================ */
+
+.menu-card{
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+}
+
+.menu-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+}
+
+.menu-card img{
+
+    transition:transform .35s ease;
+
+}
+
+.menu-card:hover img{
+
+    transform:scale(1.05);
+
+}
+
+/* ===============================
+   Search Box
+================================ */
+
+.search-wrapper input{
+
+    transition:
+        box-shadow .25s ease,
+        background .25s ease;
+
+}
+
+.search-wrapper input:focus{
+
+    box-shadow:0 0 0 4px rgba(255,107,0,.15);
+
+}
+
+/* ===============================
+   Logo
+================================ */
+
+.logo-area img{
+
+    transition:transform .3s ease;
+
+}
+
+.logo-area img:hover{
+
+    transform:rotate(-6deg) scale(1.08);
+
+}
+
+/* ===============================
+   Hero Text
+================================ */
+
+.hero h2{
+
+    animation:fadeIn .8s ease;
+
+}
+
+.hero p{
+
+    animation:fadeIn 1.2s ease;
+
+}
+
+/* ===============================
+   Section Headings
+================================ */
+
+.menu-section h2{
+
+    position:relative;
+
+}
+
+.menu-section h2::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:70px;
+
+    height:4px;
+
+    background:#ff6b00;
+
+    border-radius:50px;
+
+}
+
+/* ===============================
+   Loader
+================================ */
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+.spinner{
+
+    animation:spin 1s linear infinite;
+
+}
+
+/* ===============================
+   Page Loaded
+================================ */
+
+body{
+
+    animation:fadeIn .5s ease;
+
+}
+
+/* ===============================
+   Smooth Scroll
+================================ */
+
+html{
+
+    scroll-behavior:smooth;
+
+}

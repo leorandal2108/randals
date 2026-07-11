@@ -1,0 +1,345 @@
+/* ============================================
+   responsive.css
+   Randal's Restro Café
+============================================ */
+
+/* ===========================
+   Large Tablets
+=========================== */
+
+@media (max-width: 1200px){
+
+    #menuContainer{
+
+        padding:25px;
+
+    }
+
+    .menu-grid{
+
+        grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+
+    }
+
+}
+
+
+/* ===========================
+   Tablets
+=========================== */
+
+@media (max-width: 992px){
+
+    header{
+
+        padding:15px;
+
+    }
+
+    .logo-area img{
+
+        width:65px;
+        height:65px;
+
+    }
+
+    .restaurant-details h1{
+
+        font-size:24px;
+
+    }
+
+    .restaurant-details p{
+
+        font-size:14px;
+
+    }
+
+    .hero{
+
+        height:180px;
+
+    }
+
+    .hero h2{
+
+        font-size:28px;
+
+    }
+
+    .hero p{
+
+        font-size:16px;
+
+    }
+
+    .menu-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:768px){
+
+    header{
+
+        position:relative;
+
+    }
+
+    .logo-area{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .logo-area img{
+
+        margin-right:0;
+        margin-bottom:10px;
+
+        width:80px;
+        height:80px;
+
+    }
+
+    .restaurant-details h1{
+
+        font-size:22px;
+
+    }
+
+    .restaurant-details p{
+
+        font-size:14px;
+
+    }
+
+    .hero{
+
+        height:160px;
+
+        padding:20px;
+
+    }
+
+    .hero h2{
+
+        font-size:24px;
+
+    }
+
+    .hero p{
+
+        font-size:15px;
+
+    }
+
+    .search-box{
+
+        position:relative;
+
+        top:0;
+
+        padding:15px;
+
+    }
+
+    #categoryBar{
+
+        position:relative;
+
+        top:0;
+
+        padding:12px;
+
+        gap:8px;
+
+    }
+
+    .category{
+
+        font-size:14px;
+
+        padding:8px 15px;
+
+    }
+
+    .menu-grid{
+
+        grid-template-columns:1fr;
+
+        gap:18px;
+
+    }
+
+    .menu-card img{
+
+        height:220px;
+
+    }
+
+    .food-name{
+
+        font-size:19px;
+
+    }
+
+    .food-desc{
+
+        font-size:14px;
+
+    }
+
+    .price{
+
+        font-size:22px;
+
+    }
+
+    footer{
+
+        padding:30px 20px;
+
+    }
+
+}
+
+
+/* ===========================
+   Small Phones
+=========================== */
+
+@media (max-width:480px){
+
+    .logo-area img{
+
+        width:70px;
+        height:70px;
+
+    }
+
+    .restaurant-details h1{
+
+        font-size:20px;
+
+    }
+
+    .hero{
+
+        height:140px;
+
+    }
+
+    .hero h2{
+
+        font-size:20px;
+
+    }
+
+    .hero p{
+
+        font-size:13px;
+
+    }
+
+    .search-wrapper input{
+
+        font-size:14px;
+
+        padding:13px 15px 13px 42px;
+
+    }
+
+    .search-wrapper i{
+
+        top:14px;
+
+        left:15px;
+
+        font-size:14px;
+
+    }
+
+    .menu-section h2{
+
+        font-size:24px;
+
+    }
+
+    .card-content{
+
+        padding:15px;
+
+    }
+
+    .food-name{
+
+        font-size:18px;
+
+    }
+
+    .food-desc{
+
+        font-size:13px;
+
+        min-height:auto;
+
+    }
+
+    .price{
+
+        font-size:20px;
+
+    }
+
+    footer img{
+
+        width:60px;
+        height:60px;
+
+    }
+
+    footer h3{
+
+        font-size:18px;
+
+    }
+
+    footer p{
+
+        font-size:14px;
+
+    }
+
+}
+
+
+/* ===========================
+   Landscape Phones
+=========================== */
+
+@media (max-width:900px) and (orientation:landscape){
+
+    .hero{
+
+        height:180px;
+
+    }
+
+    .menu-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
