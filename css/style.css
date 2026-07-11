@@ -273,6 +273,7 @@ header{
 
 }
 
+
 /* ================= GRID ================= */
 
 .menu-grid{
@@ -509,5 +510,53 @@ footer small{
     font-weight:600;
     box-shadow:0 8px 20px rgba(255,107,0,.35);
     transform:translateY(-2px);
+
+}
+
+/* ================= GO TO TOP ================= */
+
+#goTopBtn{
+
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ff6b00;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+    z-index:999;
+
+    transition:all .3s ease;
+
+}
+
+#goTopBtn:hover{
+
+    background:#e55d00;
+
+    transform:translateY(-3px);
 
 }
