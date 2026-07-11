@@ -1,0 +1,23 @@
+[
+    {
+        "category":"Burger",
+        "name":"Korean Hot & Sweet Chicken Burger",
+        "description":"Crispy chicken with Korean hot & sweet sauce.",
+        "price":150,
+        "image":"images/burgers/korean.png"
+    },
+    {
+        "category":"Burger",
+        "name":"Crispy Fried Chicken Burger",
+        "description":"Juicy crispy fried chicken burger.",
+        "price":130,
+        "image":"images/burgers/crispy.png"
+    },
+    {
+        "category":"Roll",
+        "name":"Chicken Roll",
+        "description":"Classic chicken roll.",
+        "price":70,
+        "image":"images/rolls/chicken-roll.jpg"
+    }
+]
