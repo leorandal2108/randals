@@ -87,16 +87,15 @@ function enableActiveCategory() {
     const sections = document.querySelectorAll(".menu-section");
     const buttons = document.querySelectorAll(".category");
 
+    let current = "";
+
     window.addEventListener("scroll", () => {
 
-        let current = "";
+        const scrollPos = window.scrollY + 220;
 
         sections.forEach(section => {
 
-            const top = section.offsetTop - 180;
-            const bottom = top + section.offsetHeight;
-
-            if (window.scrollY >= top && window.scrollY < bottom) {
+            if (scrollPos >= section.offsetTop) {
                 current = section.id;
             }
 
@@ -104,19 +103,10 @@ function enableActiveCategory() {
 
         buttons.forEach(btn => {
 
-            btn.classList.remove("active");
-
-            if (btn.dataset.category === current) {
-
-                btn.classList.add("active");
-
-                btn.scrollIntoView({
-                    behavior: "smooth",
-                    inline: "center",
-                    block: "nearest"
-                });
-
-            }
+            btn.classList.toggle(
+                "active",
+                btn.dataset.category === current
+            );
 
         });
 
