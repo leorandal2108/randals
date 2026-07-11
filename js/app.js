@@ -15,6 +15,7 @@ fetch("data/menu.json")
         menu = data;
         renderMenu(menu);
         renderCategories(menu);
+        enableActiveCategory();
 
         document.getElementById("loader").style.display = "none";
     })
@@ -33,33 +34,97 @@ fetch("data/menu.json")
         `;
     });
 
-function renderCategories(data){
+function renderCategories(data) {
 
     const categories = [...new Set(data.map(item => item.category))];
 
     categoryBar.innerHTML = "";
 
-    categories.forEach(category=>{
+    categories.forEach((category, index) => {
 
         const btn = document.createElement("button");
 
-        btn.className="category";
+        btn.className = "category";
 
-        btn.innerText=category;
+        // Store the section id for later use
+        btn.dataset.category = category.replace(/\s/g, "");
 
-        btn.onclick=()=>{
+        btn.innerText = category;
 
+        // Highlight the first category by default
+        if (index === 0) {
+            btn.classList.add("active");
+        }
+
+        btn.addEventListener("click", () => {
+
+            // Remove active class from all buttons
+            document.querySelectorAll(".category").forEach(b => {
+                b.classList.remove("active");
+            });
+
+            // Highlight clicked button
+            btn.classList.add("active");
+
+            // Scroll to the section
             document
-                .getElementById(category.replace(/\s/g,""))
+                .getElementById(btn.dataset.category)
                 .scrollIntoView({
-                    behavior:"smooth"
+                    behavior: "smooth",
+                    block: "start"
                 });
 
-        };
+        });
 
         categoryBar.appendChild(btn);
 
     });
+
+}
+
+function enableActiveCategory() {
+
+    const sections = document.querySelectorAll(".menu-section");
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                const id = entry.target.id;
+
+                document
+                    .querySelectorAll(".category")
+                    .forEach(btn => btn.classList.remove("active"));
+
+                const activeBtn = document.querySelector(
+                    `.category[data-category="${id}"]`
+                );
+
+                if (activeBtn) {
+
+                    activeBtn.classList.add("active");
+
+                    activeBtn.scrollIntoView({
+                        behavior: "smooth",
+                        inline: "center",
+                        block: "nearest"
+                    });
+
+                }
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.35
+
+    });
+
+    sections.forEach(section => observer.observe(section));
 
 }
 
