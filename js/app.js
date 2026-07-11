@@ -85,46 +85,42 @@ function renderCategories(data) {
 function enableActiveCategory() {
 
     const sections = document.querySelectorAll(".menu-section");
+    const buttons = document.querySelectorAll(".category");
 
-    const observer = new IntersectionObserver((entries) => {
+    window.addEventListener("scroll", () => {
 
-        entries.forEach(entry => {
+        let current = "";
 
-            if (entry.isIntersecting) {
+        sections.forEach(section => {
 
-                const id = entry.target.id;
+            const top = section.offsetTop - 180;
+            const bottom = top + section.offsetHeight;
 
-                document
-                    .querySelectorAll(".category")
-                    .forEach(btn => btn.classList.remove("active"));
+            if (window.scrollY >= top && window.scrollY < bottom) {
+                current = section.id;
+            }
 
-                const activeBtn = document.querySelector(
-                    `.category[data-category="${id}"]`
-                );
+        });
 
-                if (activeBtn) {
+        buttons.forEach(btn => {
 
-                    activeBtn.classList.add("active");
+            btn.classList.remove("active");
 
-                    activeBtn.scrollIntoView({
-                        behavior: "smooth",
-                        inline: "center",
-                        block: "nearest"
-                    });
+            if (btn.dataset.category === current) {
 
-                }
+                btn.classList.add("active");
+
+                btn.scrollIntoView({
+                    behavior: "smooth",
+                    inline: "center",
+                    block: "nearest"
+                });
 
             }
 
         });
 
-    }, {
-
-        threshold: 0.35
-
     });
-
-    sections.forEach(section => observer.observe(section));
 
 }
 
