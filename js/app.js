@@ -1,9 +1,17 @@
 const menuContainer = document.getElementById("menuContainer");
 const categoryBar = document.getElementById("categoryBar");
 const searchBox = document.getElementById("search");
+const loader = document.getElementById("loader");
 
 let menu = [];
+const SHEET_ID = "1IjUIZeVz-wxmtruI6-fl1Z98OUKB-SG8ASCkNqgsE6E";
+const SHEET_NAME = "Sheet1";
 
+const url =
+`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+
+loadMenu();
+/*
 fetch("data/menu.json")
     .then(response => {
         if (!response.ok) {
@@ -33,7 +41,7 @@ fetch("data/menu.json")
         </div>
         `;
     });
-
+*/
 function renderCategories(data) {
 
     const categories = [...new Set(data.map(item => item.category))];
@@ -225,3 +233,58 @@ goTopBtn.addEventListener("click", () => {
     });
 
 });
+
+async function loadMenu() {
+
+    try {
+
+        const response = await fetch(url);
+
+        const text = await response.text();
+
+        const json = JSON.parse(
+            text.substring(47, text.length - 2)
+        );
+
+        menu = parseGoogleSheet(json);
+
+        renderCategories(menu);
+
+        renderMenu(menu);
+
+        enableActiveCategory();   // <-- changed
+
+        loader.style.display = "none";
+
+    }
+    catch(err){
+
+        console.error(err);
+
+        loader.style.display = "none";
+
+    }
+
+}
+
+function parseGoogleSheet(json){
+
+    const cols = json.table.cols.map(c => c.label);
+
+    return json.table.rows.map(row => {
+
+        const obj = {};
+
+        cols.forEach((col, index) => {
+
+            obj[col] = row.c[index] ? row.c[index].v : "";
+
+        });
+
+        obj.price = Number(obj.price);
+
+        return obj;
+
+    });
+
+}
