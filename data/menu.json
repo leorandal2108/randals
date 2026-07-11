@@ -19,5 +19,12 @@
         "description":"Classic chicken roll.",
         "price":70,
         "image":"images/rolls/chicken-roll.jpg"
+    },
+        {
+        "category":"Mocktail",
+        "name":"Virgin Mojito",
+        "description":"Classic virgin mojito.",
+        "price":170,
+        "image":"images/mocktails/virgin_mojito.jpg"
     }
 ]
